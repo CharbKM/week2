@@ -26,7 +26,8 @@ MONOPOLY_GAME = { deeds: {
 
 # 1. Implement the method below
 def number_of_tokens
-  result = MONOPOLY_GAME[:tokens].length
+ result = MONOPOLY_GAME[:tokens].count
+
 end
 
 # 2. Implement the method below.
@@ -34,21 +35,19 @@ def sorted_list_of_tokens
   result = MONOPOLY_GAME[:tokens].sort
 end
 
-def rent_for(input)
-    result =MONOPOLY_GAME[:deeds][input][:rent]
+def rent_for(deed_type, value)
+    result = MONOPOLY_GAME[:deeds]
   end
 
-  def price_for(input)
-    result =MONOPOLY_GAME[:deeds][input][:price]
+def count_number_of_monopoly_cards
+    result = MONOPOLY_GAME[:cards].count
+
   end
 
-  def count_number_of_monopoly_cards
-    result =MONOPOLY_GAME[:cards].count
-  end
 
-  def pick_free_parking_card
-    result=MONOPOLY_GAME[:cards][1]
-  end
+#def rent_for[:deeds]
+ #    rent_for(:boardwalk)
+
 
 
 # 3. Now, define as many more methods as needed to make all the tests pass:
@@ -67,40 +66,13 @@ class TestDataContainers < Test::Unit::TestCase
     assert_equal 5, number_of_tokens
   end
 
-  def test_sorted_list_of_tokens
+ def test_sorted_list_of_tokens
     assert_equal [:car, :hat, :horse, :thimble, :wheelbarrow], sorted_list_of_tokens
   end
-
-  def test_boardwalk_rent
+def test_boardwalk_rent
     assert_equal 50, rent_for(:boardwalk)
   end
-
-  def test_baltic_rent
-    assert_equal 4, rent_for(:baltic)
-  end
-
-  def test_atlantic_rent
-    assert_equal 22, rent_for(:atlantic)
-  end
-
-  def test_atlantic_price
-    assert_equal 260, price_for(:atlantic)
-  end
-
-  def test_baltic_price
-    assert_equal 60, price_for(:baltic)
-  end
-
-  def test_boardwalk_price
-    assert_equal 400, price_for(:boardwalk)
-  end
-
-  def test_number_of_cards
+def test_number_of_cards
     assert_equal 3, count_number_of_monopoly_cards
   end
-
-  def test_free_parking
-    assert_equal 'Advance to Free Parking', pick_free_parking_card
-  end
-
 end
